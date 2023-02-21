@@ -3,27 +3,38 @@
  * 
  */
 
+/**
+ * HTML REVIEW
+ * thead -> table head 
+ * tr -> table row 
+ * th -> table header 
+ * tbody -> table body
+ * td -> table cell
+ */
+
 import React, { Component } from "react";
 
-class Table extends Component {
-    /**
-     * HTML REVIEW
-     * thead -> table head 
-     * tr -> table row 
-     * th -> table header 
-     * tbody -> table body
-     * td -> table cell
-     */
-    render() {
-        return (
-          <table>
-            <thead>
+/*
+create two simple function components to make
+our table code more readable
+*/
+
+//TABLE HEADER SIMPLE COMPONENT
+const TableHeader = () => {
+    return (
+        <thead>
               <tr>
                 <th>Name</th>
                 <th>Job</th>
               </tr>
             </thead>
-            <tbody>
+    );
+}
+
+//TABLE BODY SIMPLE COMPONENT 
+const TableBody = () => {
+    return (
+        <tbody>
               <tr>
                 <td>Charlie</td>
                 <td>Janitor</td>
@@ -40,7 +51,17 @@ class Table extends Component {
                 <td>Dennis</td>
                 <td>Bartender</td>
               </tr>
-            </tbody>
+        </tbody>
+    )
+}
+
+// TABLE is our main Component
+class Table extends Component {
+    render() {
+        return (
+          <table>
+            <TableHeader/>
+            <TableBody/>
           </table>
         )
       }
