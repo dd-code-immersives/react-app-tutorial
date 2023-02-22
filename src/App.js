@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 */
 import Table from './Table' 
 import Form from './Form'
+import Clock from './Clock'
 
 //components can also be functional 
 // {} evaluate javascript code
@@ -80,6 +81,7 @@ class App extends Component {
       return (
         <div className="container"> 
           <Welcome name="Dom"/>
+          <Clock date={new Date().toLocaleTimeString()} />
           <Table 
             characterData={this.state.characters} 
             removeCharacter={this.removeCharacter} 
@@ -89,6 +91,9 @@ class App extends Component {
       )
     }
   }
+
+
+
 
 // make it accessible to the rest of your application
 export default App
