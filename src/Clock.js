@@ -1,10 +1,13 @@
 
- function Clock(props) {
-    const element = (
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {props.date}.</h2>
-      </div>
-    );
-    return element;
+ class Clock extends Component {
+
+    render() {
+        return (
+            <div>
+                <h1>Hello, world!</h1>
+                <h2>It is {this.props.date.toLocalTimeString()}.</h2>
+            </div>
+        );
+    }
   }
+
