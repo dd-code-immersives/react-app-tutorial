@@ -5,12 +5,10 @@ import React, { Component } from 'react';
    in other words: tells App to behave like a component. 
 */
 import Table from './Table' 
-
-
-
+import Form from './Form'
 
 class App extends Component {
-
+    // set initial state of component 
     state = {
         characters: [{
             name: 'Charlie',
@@ -31,7 +29,7 @@ class App extends Component {
         ]
     }
 
-    // create simple function here to remove character
+    // create simple method here to remove character
     removeCharacter = (index) => {
     //now that we've defined this.state, we can use 
         const { characters } = this.state 
@@ -44,7 +42,25 @@ class App extends Component {
                 return i !== index
             }),
         })
-    }
+    } 
+
+    // // create method to add a character 
+    // addCharacter = (name_, job) => {
+
+    //   this.characters.push({name: name_, });
+    //   this.setState({
+    //     characters: this.characters
+    //   });
+    // }
+
+    //we add the handle submit here , because 
+    //the characters are in here 
+    // NOTE ON SYNTAX: passing a character to addCharacter 
+    // using (...) spread operator to unpack characters array and adding
+    // a new character
+    addCharacter = character => {
+      this.setState({characters: [...this.state.characters, character ]})
+    } 
 
     /* you always have a render function
      in a component. */ 
@@ -56,7 +72,11 @@ class App extends Component {
       // so table can use it later on 
       return (
         <div className="container"> 
-          <Table characterData={this.state.characters} removeCharacter={this.removeCharacter}  /> 
+          <Table 
+            characterData={this.state.characters} 
+            removeCharacter={this.removeCharacter} 
+          /> 
+          <Form addCharacter={this.addCharacter}/>
         </div>
       )
     }
