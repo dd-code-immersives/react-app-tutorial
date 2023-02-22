@@ -81,7 +81,7 @@ class App extends Component {
       return (
         <div className="container"> 
           <Welcome name="Dom"/>
-          <Clock date={new Date().toLocaleTimeString()} />
+          <Clock />
           <Table 
             characterData={this.state.characters} 
             removeCharacter={this.removeCharacter} 
