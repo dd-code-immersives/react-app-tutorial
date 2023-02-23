@@ -35,7 +35,7 @@ class Form extends Component {
         this.props.addCharacter(this.state);
 
         //clear inputs by setting form to inital state
-        this.setState(this.initialState);
+        this.setState(this.initalState);
         
 
     }

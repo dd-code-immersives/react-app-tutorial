@@ -19,6 +19,12 @@ create two simple function components to make
 our table code more readable
 */
 
+//DELETE ALL BUTTON Simple Component
+const DeleteAllButton = (props) => {
+  return <button onClick={() => props.removeAllCharacters()}> Delete All</button>
+}
+
+
 //TABLE HEADER SIMPLE COMPONENT
 const TableHeader = () => {
     return (
@@ -57,10 +63,13 @@ class Table extends Component {
         //read props passed in from App.js
         const { 
           characterData, 
-          removeCharacter
+          removeCharacter,
+          removeAllCharacters
         } = this.props;
 
         return (
+          <div id="table">
+          <DeleteAllButton removeAllCharacters={removeAllCharacters}/> 
           <table>
             <TableHeader/>
             <TableBody 
@@ -68,8 +77,9 @@ class Table extends Component {
               removeCharacter={removeCharacter}
              />
           </table>
+          </div>
         )
       }
-}
+ }
 
 export default Table
