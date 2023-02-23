@@ -8,10 +8,9 @@ import Table from './Table'
 import Form from './Form'
 import Clock from './Clock'
 
-//components can also be functional 
-// {} evaluate javascript code
-function Welcome(props){
-  return <h1>Welcome, {props.name}</h1>
+// delete All Button simple component 
+function DeleteAllButton(props) {
+  return <button onClick={() => props.deleteAll()}> Delete All </button>
 }
 
 class App extends Component {
@@ -75,12 +74,11 @@ class App extends Component {
       // so table can use it later on 
       return (
         <div className="container"> 
-          <Welcome name="Dom"/>
-          <Clock />
+          <Clock name="Dom"/>
+          <DeleteAllButton deleteAll={this.removeAllCharacters}/>
           <Table 
             characterData={this.state.characters} 
             removeCharacter={this.removeCharacter} 
-            removeAllCharacters={this.removeAllCharacters}
           /> 
           <Form addCharacter={this.addCharacter}/>
         </div>
