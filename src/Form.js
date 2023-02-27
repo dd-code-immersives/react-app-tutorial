@@ -10,7 +10,8 @@ class Form extends Component {
         // set the initial state of the Form
         this.initalState = {
             name: '',
-            job: ''
+            job: '',
+            date: new Date().toString()
         };
 
         //set our initial state to state.
@@ -30,11 +31,13 @@ class Form extends Component {
     onFormSubmit = (event) => {
         //standard code for onSubmits 
         event.preventDefault();
-        
+        const newDate = new Date().toString();
+        this.setState({date:newDate});
         //set the current state of our form to the handle submit
         this.props.addCharacter(this.state);
 
         //clear inputs by setting form to inital state
+        this.initalState.date = newDate;
         this.setState(this.initalState);
         
 
