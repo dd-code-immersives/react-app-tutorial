@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import Table from './Table' 
 import Form from './Form'
 import Clock from './Clock'
+import Example from './Example'
 
 // delete All Button simple component 
 function DeleteAllButton(props) {
@@ -72,6 +73,8 @@ class App extends Component {
       // we are passing the characters from state
       // and the removeCharacter function that we wrote
       // so table can use it later on 
+
+      console.log(this.state.characters);
       return (
         <div className="container"> 
           <Clock name="Dom"/>
@@ -81,12 +84,11 @@ class App extends Component {
             removeCharacter={this.removeCharacter} 
           /> 
           <Form addCharacter={this.addCharacter}/>
+          <Example/>
         </div>
       )
     }
   }
-
-
 
 
 // make it accessible to the rest of your application
